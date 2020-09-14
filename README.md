@@ -1,6 +1,6 @@
 # A statically generated blog example using Next.js and DatoCMS
 
-This example showcases Next.js's [Static Generation](https://nextjs.org/docs/basic-features/pages) feature using [DatoCMS](https://www.datocms.com/) as the data source.
+This example showcases Next.js's [Static Generation](https://nextjs.org/docs/basic-features/pages) feature using [microCMS](https://microcms.io/) as the data source.
 
 ## Demo
 
@@ -26,97 +26,93 @@ This example showcases Next.js's [Static Generation](https://nextjs.org/docs/bas
 
 Once you have access to [the environment variables you'll need](#step-5-set-up-environment-variables), deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/git?c=1&s=https://github.com/vercel/next.js/tree/canary/examples/cms-datocms&env=DATOCMS_API_TOKEN,DATOCMS_PREVIEW_SECRET&envDescription=Required%20to%20connect%20the%20app%20with%20DatoCMS&envLink=https://vercel.link/cms-datocms-env)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/git?c=1&s=https://github.com/vercel/next.js/tree/canary/examples/cms-datocms&env=API_KEY,API_URL&envDescription=Required%20to%20connect%20the%20app%20with%20mivtoCMS&envLink=https://vercel.link/cms-microcms-env)
 
-## How to use
+## 使い方
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+とりあえずこのレポジトリをcloneして使ってください。
 
 ```bash
-npx create-next-app --example cms-datocms cms-datocms-app
-# or
-yarn create next-app --example cms-datocms cms-datocms-app
+git clone git@github.com:saniman/cms-microcms.git
+
 ```
 
 ## Configuration
 
-### Step 1. Create an account and a project on DatoCMS
+### Step 1. microCMSのアカウントを作ってください。
 
-First, [create an account on MicroCMS](https://microcms.io).
+最初に, [microCMSのアカウント作ります](https://microcms.io).
 
-After creating an account, create a **new project** from the dashboard. You can select a **Blank Project**.
+その後に新しいコンテンツ（API）を作成してください。
 
-### Step 2. Create an `Author` model
+### Step 2. まずは `Author` コンテンツ（API）を作ります。
 
-From the project setting page, create a new **Model**.
+管理画面からコンテンツ（API）を新たに作成します。
 
-- The name should be `Author`.
+- APIのエンドポイントの名前は `Author` にしてください。
 
-Next, add these fields (you don't have to modify the settings):
+次に下記のAPIスキーマを追加してください。
 
-- `Name` - **Text** field (**Single-line String**)
-- `Picture` - **Media** field (**Single asset**)
+- `Name` - **テキスト** フィールド 
+- `Picture` - **画像** フィールド 
 
-### Step 3. Create a `Post` model
+### Step 3. `Post` コンテンツ（API）を作ります。
 
-From the project setting page, create a new **Model**:
+管理画面からコンテンツ（API）を新たに作成します。
 
-- The name should be `Post`.
-- **Important:** From the "Additional Settings" tab, turn on **Enable draft/published system.** This lets you preview the content.
+- TAPIのエンドポイントの名前は `Post`にしてください。
 
-Next, add these fields (you don't have to modify the settings unless specified):
+次に下記のAPIスキーマを追加してください。
 
-- `Title` - **Text** field (**Single-line String**)
-- `Content` - **Text** field (**Multiple-paragraph Text**)
-- `Excerpt` - **Text** field (**Single-line String**)
-- `Cover Image` - **Media** field (**Single asset**)
-- `Date` - **Date and time** field (**Date**)
-- `Author` - **Links** field (**Single link**) , and from the "Validations" tab under "Accept only specified model", select **Author**.
-- `Slug` - **SEO** field (**Slug**), and from the "Validations" tab under "Reference field" select **Title**.
+- `Title` - **テキスト** フィールド 
+- `Content` - **テキストエリア** フィールド
+- `Excerpt` - **テキスト** フィールド 
+- `Cover Image` - **メディア** フィールド 
+- `Date` - **日時** フィールド 
+- `Author` - **コンテンツ参照** フィールド 
 
-### Step 4. Populate Content
+### Step 4. コンテンツを入力してみましょう
 
-From the **Content** menu at the top, select **Author** and create a new record.
+コンテンツ（API)メニューから先ほど作成したAuthorメニューを選んで内容を入力しましょう。
 
-- You just need **1 Author record**.
-- Use dummy data for the text.
-- For the image, you can download one from [Unsplash](https://unsplash.com/).
+- ダミーのデータを入れてもいいでしょう
+- イメージデータはこのサイトから使ってもいいでしょう [Unsplash](https://unsplash.com/).
 
-Next, select **Post** and create a new record.
+次にコンテンツ（API)メニューから先ほど作成したPostメニューを選んで内容を入力しましょう。
 
-- We recommend creating at least **2 Post records**.
-- Use dummy data for the text.
-- You can write markdown for the **Content** field.
-- For the images, you can download ones from [Unsplash](https://unsplash.com/).
-- Pick the **Author** you created earlier.
+- ダミーのデータを入れてもいいでしょう
+- **Content** フィールドにはマークダウンも使えます。
+- イメージデータはこのサイトから使ってもいいでしょう [Unsplash](https://unsplash.com/).
+- **Author** フィールドには先ほど作成したAuthorコンテンツから選択できます。
 
-**Important:** For each post record, you need to click **Publish** after saving. If not, the post will be in the draft state.
+**重要:** 作成した内容をサイトで公開するには公開ボタンを押す必要があります。
 
-### Step 5. Set up environment variables
+### Step 5. 環境変数を設定しましょう
 
-Go to the **Settings** menu at the top and click **API tokens**.
+コンテンツ（API)メニューを洗濯した状態で上部に表示される[APIリファレンス]メニューから[ヘッダー]の箇所にある
+`X-API-KEY`をコピーしましょう
 
-Then click **Read-only API token** and copy the token.
-
-Next, copy the `.env.local.example` file in this directory to `.env.local` (which will be ignored by Git):
+次に `.env.local.example`をコピーして `.env.local`を作成します (自動的にGitのコミットからは除外されます):
 
 ```bash
 cp .env.local.example .env.local
 ```
 
-Then set each variable on `.env.local`:
+環境変数雨を `.env.local`に入力します:
 
-- `API_KEY` should be the API token you just copied.
-- `API_URL` can be any random string (but avoid spaces), like `MY_SECRET` - this is used for [the Preview Mode](https://nextjs.org/docs/advanced-features/preview-mode).
+- `API_KEY` X-API-KEYを入力します。
+- `API_URL` mirsoCMSのAPI URLを入力します。(https://xxx.microcms.io/api/v1/)
+- `SERVICE_ID` mirsoCMSのAPIエンドポイントを入力します。(exampleなど)
 
 Your `.env.local` file should look like this:
 
 ```bash
 API_KEY=...
 API_URL=...
+SERVICE_ID=...
 ```
 
-### Step 6. Run Next.js in development mode
+### Step 6. 開発モードでNextJSを起動します。
 
 ```bash
 npm install
@@ -128,42 +124,29 @@ yarn install
 yarn dev
 ```
 
-Your blog should be up and running on [http://localhost:3000](http://localhost:3000)! If it doesn't work, post on [GitHub discussions](https://github.com/vercel/next.js/discussions).
+[http://localhost:3000]で起動します。(http://localhost:3000)! 
 
-### Step 7. Try preview mode
+### Step 7. プレビューモードを試す
 
-On DatoCMS, go to one of the posts you've created and:
+microCMSは下書き保存することによって投稿を下書き状態にすることができます。
 
-- **Update the title**. For example, you can add `[Draft]` in front of the title.
-- Click **Save**, but **DO NOT** click **Publish**. By doing this, the post will be in the draft state.
-
-(If it doesn't become draft, you need to go to the model settings for `Post`, go to **Additional Settings**, and turn on **Enable draft/published system**.)
-
-Now, if you go to the post page on localhost, you won't see the updated title. However, if you use the **Preview Mode**, you'll be able to see the change ([Documentation](https://nextjs.org/docs/advanced-features/preview-mode)).
-
-To enable the Preview Mode, go to this URL:
+ローカルで開発をしている場合でも下記のURLで下書きの投稿をプレビューして確認することができます。
 
 ```
 http://localhost:3000/api/preview?id={CONTENT_ID}&draftKey={DRAFT_KEY}
 ```
 
-- `{CONTENT_ID}` should be the string you entered for `DATOCMS_PREVIEW_SECRET`.
-- `{DRAFT_KEY}` should be the post's `slug` attribute (you can check on DatoCMS).
+- `{CONTENT_ID}` はコンテンツのIDが付与されます。
+- `{DRAFT_KEY}` は下書き状態の記事のキーが付与されます。
 
-You should now be able to see the updated title. To exit the preview mode, you can click **Click here to exit preview mode** at the top.
 
-### Step 8. Deploy on Vercel
+### Step 8. Vercelで公開
 
-You can deploy this app to the cloud with [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+プロジェクトの公開はVercelで簡単にできます。 [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
 
-#### Deploy Your Local Project
+#### ローカルのプロジェクトを公開
 
-To deploy your local project to Vercel, push it to GitHub/GitLab/Bitbucket and [import to Vercel](https://vercel.com/import/git?utm_source=github&utm_medium=readme&utm_campaign=next-example).
+ローカルのプロジェクトは GitHub/GitLab/Bitbucket または [import to Vercel](https://vercel.com/import/git?utm_source=github&utm_medium=readme&utm_campaign=next-example)を使って公開できます.
 
-**Important**: When you import your project on Vercel, make sure to click on **Environment Variables** and set them to match your `.env.local` file.
+**重要**: Vercelを使って公開する場合はVercelのプロジェクト内の **Environment Variables（環境変数）** に `.env.local` ファイルと同じ内容の変数をセットする必要があります。.
 
-#### Deploy from Our Template
-
-Alternatively, you can deploy using our template by clicking on the Deploy button below.
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/git?c=1&s=https://github.com/vercel/next.js/tree/canary/examples/cms-datocms&env=DATOCMS_API_TOKEN,DATOCMS_PREVIEW_SECRET&envDescription=Required%20to%20connect%20the%20app%20with%20DatoCMS&envLink=https://vercel.link/cms-datocms-env)
