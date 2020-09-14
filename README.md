@@ -60,7 +60,7 @@ git clone git@github.com:saniman/cms-microcms.git
 
 管理画面からコンテンツ（API）を新たに作成します。
 
-- TAPIのエンドポイントの名前は `Post`にしてください。
+- APIのエンドポイントの名前は `Post`にしてください。
 
 次に下記のAPIスキーマを追加してください。
 
