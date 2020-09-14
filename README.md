@@ -31,6 +31,7 @@ Once you have access to [the environment variables you'll need](#step-5-set-up-e
 ## 使い方
 
 とりあえずこのレポジトリをcloneして使ってください。
+フォークでもいいです。
 
 ```bash
 git clone git@github.com:saniman/cms-microcms.git
