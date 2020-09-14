@@ -89,7 +89,7 @@ git clone git@github.com:saniman/cms-microcms.git
 
 ### Step 5. 環境変数を設定しましょう
 
-コンテンツ（API)メニューを洗濯した状態で上部に表示される[APIリファレンス]メニューから[ヘッダー]の箇所にある
+コンテンツ（API)メニューを選択した状態で上部に表示される[APIリファレンス]メニューから[ヘッダー]の箇所にある
 `X-API-KEY`をコピーしましょう
 
 次に `.env.local.example`をコピーして `.env.local`を作成します (自動的にGitのコミットからは除外されます):
