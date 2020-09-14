@@ -2,7 +2,7 @@
 
 この例はこちらの [Static Generation](https://nextjs.org/docs/basic-features/pages) を元に作成した [microCMS](https://microcms.io/) 用のサンプルプロジェクトです。
 
-## でも
+## Demo
 
 [https://cms-microcms.vercel.app/](https://cms-microcms.vercel.app/)
 
