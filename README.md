@@ -104,7 +104,7 @@ cp .env.local.example .env.local
 - `API_URL` mirsoCMSのAPI URLを入力します。(https://xxx.microcms.io/api/v1/)
 - `SERVICE_ID` mirsoCMSのAPIエンドポイントを入力します。(exampleなど)
 
-Your `.env.local` file should look like this:
+ `.env.local` ファイルは下記のようになります。
 
 ```bash
 API_KEY=...
@@ -131,6 +131,7 @@ yarn dev
 microCMSは下書き保存することによって投稿を下書き状態にすることができます。
 
 ローカルで開発をしている場合でも下記のURLで下書きの投稿をプレビューして確認することができます。
+下記のURLを[API設定]の画面プレビューに入力フィールドに追加します。
 
 ```
 http://localhost:3000/api/preview?id={CONTENT_ID}&draftKey={DRAFT_KEY}
