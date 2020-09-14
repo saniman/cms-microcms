@@ -1,4 +1,4 @@
-# 静的生成されたブログのサンプルプロジェクトをNextJSを使って作りました。
+# JAMSTACKブログのサンプルプロジェクトをNextJSとmicroCMSを使って作りました。
 
 この例はこちらの [Static Generation](https://nextjs.org/docs/basic-features/pages) を元に作成した [microCMS](https://microcms.io/) 用のサンプルプロジェクトです。
 
