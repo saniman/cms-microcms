@@ -7,7 +7,7 @@ import Header from '@/components/header'
 import PostHeader from '@/components/post-header'
 import SectionSeparator from '@/components/section-separator'
 import Layout from '@/components/layout'
-import { getAllPostsWithID, getPostAndMorePosts } from '@/lib/api'
+import { getPostByID, getMorePosts, getAllPostsWithID } from '@/lib/api'
 import PostTitle from '@/components/post-title'
 import Head from 'next/head'
 import { CMS_NAME } from '@/lib/constants'
@@ -51,16 +51,23 @@ export default function Post({ post, morePosts, preview }) {
 }
 
 export async function getStaticProps({ params, previewData, preview = false }) {
-  const data = await getPostAndMorePosts(params.id, previewData?.draftKey)
-  const content = await markdownToHtml(data?.postByID.content || '')
+  const data = await getPostByID(params?.id, previewData?.draftKey)
+  const morePosts = await getMorePosts(params?.id)
+  //日付データで降順に並べ替え
+  morePosts.sort(function(a,b){
+    if(a.date>b.date) return -1;
+    if(a.date < b.date) return 1;
+    return 0;
+  });
+  const content = await markdownToHtml(data?.content || '')
   return {
     props: {
       preview,
       post: {
-        ...data?.postByID,
+        ...data,
         content,
       },
-      morePosts: data?.morePosts.contents ?? [],
+      morePosts: morePosts,
     },
   }
 }
