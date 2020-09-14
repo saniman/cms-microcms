@@ -4,7 +4,7 @@ This example showcases Next.js's [Static Generation](https://nextjs.org/docs/bas
 
 ## Demo
 
-[https://next-blog-datocms.now.sh/](https://next-blog-datocms.now.sh/)
+[https://cms-microcms.vercel.app/](https://cms-microcms.vercel.app/)
 
 ### Related examples
 
@@ -42,7 +42,7 @@ yarn create next-app --example cms-datocms cms-datocms-app
 
 ### Step 1. Create an account and a project on DatoCMS
 
-First, [create an account on DatoCMS](https://datocms.com).
+First, [create an account on MicroCMS](https://microcms.io).
 
 After creating an account, create a **new project** from the dashboard. You can select a **Blank Project**.
 
@@ -106,14 +106,14 @@ cp .env.local.example .env.local
 
 Then set each variable on `.env.local`:
 
-- `DATOCMS_API_TOKEN` should be the API token you just copied.
-- `DATOCMS_PREVIEW_SECRET` can be any random string (but avoid spaces), like `MY_SECRET` - this is used for [the Preview Mode](https://nextjs.org/docs/advanced-features/preview-mode).
+- `API_KEY` should be the API token you just copied.
+- `API_URL` can be any random string (but avoid spaces), like `MY_SECRET` - this is used for [the Preview Mode](https://nextjs.org/docs/advanced-features/preview-mode).
 
 Your `.env.local` file should look like this:
 
 ```bash
-DATOCMS_API_TOKEN=...
-DATOCMS_PREVIEW_SECRET=...
+API_KEY=...
+API_URL=...
 ```
 
 ### Step 6. Run Next.js in development mode
@@ -144,11 +144,11 @@ Now, if you go to the post page on localhost, you won't see the updated title. H
 To enable the Preview Mode, go to this URL:
 
 ```
-http://localhost:3000/api/preview?secret=<secret>&slug=<slug>
+http://localhost:3000/api/preview?id={CONTENT_ID}&draftKey={DRAFT_KEY}
 ```
 
-- `<secret>` should be the string you entered for `DATOCMS_PREVIEW_SECRET`.
-- `<slug>` should be the post's `slug` attribute (you can check on DatoCMS).
+- `{CONTENT_ID}` should be the string you entered for `DATOCMS_PREVIEW_SECRET`.
+- `{DRAFT_KEY}` should be the post's `slug` attribute (you can check on DatoCMS).
 
 You should now be able to see the updated title. To exit the preview mode, you can click **Click here to exit preview mode** at the top.
 
