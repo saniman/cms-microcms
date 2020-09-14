@@ -137,6 +137,12 @@ microCMSは下書き保存することによって投稿を下書き状態にす
 http://localhost:3000/api/preview?id={CONTENT_ID}&draftKey={DRAFT_KEY}
 ```
 
+Vercelなどの本番環境にデプロイしたらlocalhostの部分は使っているドメインに直して入力し直しましょう。
+
+```
+http://yourdomain.com/api/preview?id={CONTENT_ID}&draftKey={DRAFT_KEY}
+```
+
 - `{CONTENT_ID}` はコンテンツのIDが付与されます。
 - `{DRAFT_KEY}` は下書き状態の記事のキーが付与されます。
 
