@@ -99,7 +99,7 @@ git clone git@github.com:saniman/cms-microcms.git
 cp .env.local.example .env.local
 ```
 
-環境変数雨を `.env.local`に入力します:
+環境変数を `.env.local`に入力します:
 
 - `API_KEY` X-API-KEYを入力します。
 - `API_URL` mirsoCMSのAPI URLを入力します。(https://xxx.microcms.io/api/v1/)
